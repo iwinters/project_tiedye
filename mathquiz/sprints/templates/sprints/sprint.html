@@ -1,0 +1,85 @@
+{% if user.is_authenticated %}
+
+<head>        
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'sprints/base_form.css' %}">
+  
+    <meta name="viewport" content="width=device-width">
+
+</head>
+<body>
+        <div class="header">
+            <a href="{% url 'tree' %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='200px'></a>
+            <div class="header-right">
+            <a class="active toplinks" href="#home">Home</a>
+            </div>
+            <div>
+                {{ unit.category }}
+                {{unit.question_framework}}
+            </div>
+        </div>
+
+        <div id="regForm" action="">
+            <div class='meter' style="text-align:center; margin-bottom: 80px;">
+                <span id='pointsBar' style="width: 0px"></span>
+            </div>
+            <div>
+                <img src='{% static "sprints/gingerbeard.svg" %}' class='messenger-pic' style="vertical-align: top; margin-right: 10px;">
+                <div class = 'message'  id="question" >
+                    <!-- question text will go here -->
+                </div>
+
+                <p><input autofocus id="answer" oninput="this.className = ''"></p>
+            </div>
+
+            <div style="margin-top: 100px; margin-bottom: 20px;">
+                <div style="text-align: right;">
+                    <button type="button" id="checkButton" onclick="checkAnswer(1)" class='button oy-button'>Check answer</button>
+                    <button type='button' id='nextButton' onclick='nextQuestion()' class='button gg-button hidden'>Next question</button>
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="hidden success" id="success">
+            <h1>Correct!</h1>
+        </div>
+        <div class="hidden wrong" id="incorrect">
+            <h1>Try again</p>
+        </div>
+
+        <div id='finishLine' class='hidden finishLine' style='margin: auto'>
+            <div class = 'finish-line-edwin-div' style='width: 300px; margin: auto;'>
+                <img src='{% static "sprints/charles.png" %}' class = 'finish-line-edwin'>
+            </div>
+            <div class = 'finish-line-text-area'><span style='font-weight: bold; font-size: 30px;'>You did it!</span><br><span style='font-size: 20px;'>and earned 25 coins!</span>
+                <a style='float:right; margin: 20px' id='finishLineButton' class='button gw-button' href="{% url 'tree' %}">Onwards!</a>
+
+            </div>
+
+           
+        
+        </div>
+
+    <script>
+
+    </script>
+    <script>
+        var question_framework = '{{ unit.question_framework}}'
+        var equation = '{{ unit.equation }}'
+        var rules = '{{ unit.rules }}'
+    </script>
+    <script src='{% static "sprints/base_form.js" %}'></script> 
+    <script>
+        window.onload = randomProblem()
+    </script>
+
+
+</body>
+{% else %}
+<body>
+    IM MELTING
+</body>
+
+{% endif %}

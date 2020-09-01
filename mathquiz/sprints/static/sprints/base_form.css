@@ -1,0 +1,285 @@
+@import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+.header {
+  padding: 20px;
+  margin-bottom: 50px
+}
+.logo {
+  width: 15%;
+  min-width: 125px;
+}
+
+.header-right {
+  float: right;
+}
+.finishLine {
+  margin: 20px auto;
+  width: 50%;
+  min-width: 300px;
+}
+
+#regForm {
+  margin: 20px auto;
+  padding: 40px;
+  width: 50%;
+  min-width: 300px;
+}
+.button {
+  font-family: 'Inter Var';
+  font-size: large;
+  font-weight: 550;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+
+}
+.oy-button {
+  background-color: rgb(255, 122, 0);
+  border: 3px solid rgb(255, 122, 0);
+  box-shadow: 0px 7px rgb(255, 199, 0);
+}
+.gg-button {
+  background-color:  rgb(0, 123, 0);
+  border: 3px solid  rgb(0, 123, 0);
+  box-shadow: 0px 7px rgb(162, 235, 162);
+
+}
+.gw-button {
+  background-color:  rgb(0, 123, 0);
+  border: 3px solid  rgb(0, 123, 0);
+  box-shadow: 0px 7px rgb(244, 255, 244);
+  text-decoration:none;
+}
+.nextButton {
+  font-family: 'Inter Var';
+  font-size: large;
+  font-weight: 550;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  background-color:  rgb(0, 123, 0);
+  border: 3px solid  rgb(0, 123, 0);
+  box-shadow: 0px 7px rgb(162, 235, 162);
+}
+.finishLineButton {
+  font-family: 'Inter Var';
+  font-size: large;
+  font-weight: 550;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.previousButton {
+  font-family: 'Inter Var';
+  font-size: large;
+  font-weight: 550;
+  color: rgb(255, 122, 0);
+  background-color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: 3px solid rgb(255, 122, 0);
+  box-shadow: 0px 7px rgb(255, 199, 0);
+}
+.hidden {
+  display: none
+}
+
+/* Style the input fields */
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: 'Inter var';
+  border: 0px;
+  border-bottom: 2px solid rgb(237, 237, 237);
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+  background-color:  rgb(255, 199, 0);
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #000000;
+}
+
+.success {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(167, 255, 167);
+  padding: 30px;
+  color: rgb(0, 123, 0);
+}
+.wrong {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(255, 219, 219);
+  padding: 30px;
+  color: rgb(255, 49, 49);
+}
+
+
+.toplinks {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.meter { 
+	height: 20px;  /* Can be anything */
+	background: rgb(237, 237, 237);
+  margin: 0px;
+	border-radius: 25px;
+  padding: 10px;
+}
+.meter > span {
+  display: block;
+  height: 100%;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  background-color: rgb(0, 123, 0);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.messenger-pic {
+  width: 20%;
+  max-width: 75px
+}
+.message {
+  background-color: rgb(237, 237, 237);
+  border-radius: 50px;
+  padding: 20px;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 50%;
+}
+.finish-line-edwin {
+  width:100%;
+}
+.finish-line-edwin-div {
+  width: 300px;
+  margin: auto;
+
+}
+.finish-line-text-area {
+  background-color: rgb(150, 241, 150);
+  color:rgb(0, 105, 0);
+  border-radius: 20px;
+  padding:30px;
+  padding-bottom: 80px;
+  width: 75%;
+  min-width: 300px;
+}
+
+
+@media only screen and (max-width: 600px) {
+  #regForm {
+    width: 80%;
+    padding: 0px;
+    margin: 0px auto;
+
+    
+  }
+  body {
+    font-size: 4vw;
+  }
+  .button {
+    font-size: 4vw;
+    padding: 5px 15px;
+    border-radius: 6px;
+  }
+  .oy-button {
+    box-shadow: 0px 8px rgb(255, 199, 0);
+  }
+  .gg-button {
+    box-shadow: 0px 8px rgb(162, 235, 162);
+  
+  }
+  .gw-button {
+    box-shadow: 0px 8px rgb(244, 255, 244);
+    text-decoration: none;
+  }
+  .messenger-pic {
+    width: 100px;
+  }
+  .message {
+    background-color: rgb(237, 237, 237);
+    border-radius: 50px;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+  }
+  input {
+    padding: 10px;
+    width: 100%;
+    font-size: 3vw;
+  }
+  .header {
+    padding: 20px;
+    margin-bottom: 10px
+  }
+  .finish-line-edwin-div {
+    width: 100px;
+  
+  }
+  .finish-line-text-area {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(167, 255, 167);
+    padding: 30px;
+    color: rgb(0, 123, 0);
+
+
+    border-radius: 0px;
+    width:auto
+
+  }
+
+
+}
+
