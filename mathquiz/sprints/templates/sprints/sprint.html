@@ -9,14 +9,11 @@
 </head>
 <body>
         <div class="header">
-            <a href="{% url 'tree' %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='200px'></a>
+            <a href="{% url 'tree' %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
             <div class="header-right">
             <a class="active toplinks" href="#home">Home</a>
             </div>
-            <div>
-                {{ unit.category }}
-                {{unit.question_framework}}
-            </div>
+
         </div>
 
         <div id="regForm" action="">
@@ -42,19 +39,45 @@
             </div>
 
         </div>
+
+        <div id='lessonCard' class='lessonCard hidden'>
+            <div style='position:relative'>
+                <div id='pointsBarLesson'style='width:0%; position:absolute; top: 0px; left: 30px'>
+                    <div style='background-color: #EB0000; height:20px'></div>
+                    <div style='background-color: rgb(255, 122, 0); height:20px'></div>
+                    <div style='background-color: rgb(255, 199, 0); height:20px'></div>
+
+
+                </div>
+                <img src='{% static "sprints/gingerbeard.svg" %}' class='messenger-pic' style="position:absolute; top: -10px; left: -15px">
+
+            </div>
+            <div class='lessonCardContents'>
+                <div id='lessonCardText' class='lessonCardText'>
+                    a
+                </div>
+                <div style='text-align-last: right;'>
+                    <button type="button" id="checkLessonMath" onclick="checkLessonMath()" class='button oy-button'>Check answer</button>
+                    <button type='button' id='nextButtonLesson' onclick='nextQuestionLesson()' class='button gg-button hidden'>Next question</button>
+
+                </div>
+            </div>
+        </div>
         <div class="hidden success" id="success">
             <h1>Correct!</h1>
         </div>
         <div class="hidden wrong" id="incorrect">
-            <h1>Try again</p>
+            <h1>Try again</h1>
         </div>
 
-        <div id='finishLine' class='hidden finishLine' style='margin: auto'>
+        <div id='finishLine' class='hidden finishLine'>
             <div class = 'finish-line-edwin-div' style='width: 300px; margin: auto;'>
                 <img src='{% static "sprints/charles.png" %}' class = 'finish-line-edwin'>
             </div>
             <div class = 'finish-line-text-area'><span style='font-weight: bold; font-size: 30px;'>You did it!</span><br><span style='font-size: 20px;'>and earned 25 coins!</span>
-                <a style='float:right; margin: 20px' id='finishLineButton' class='button gw-button' href="{% url 'tree' %}">Onwards!</a>
+                <div style='text-align: right'>
+                    <a style='margin: 20px' id='finishLineButton' class='button gw-button' href="{% url 'tree' %}">Onwards!</a>
+                </div>
 
             </div>
 
@@ -69,10 +92,11 @@
         var question_framework = '{{ unit.question_framework}}'
         var equation = '{{ unit.equation }}'
         var rules = '{{ unit.rules }}'
+        var type = '{{ unit.sprint_type }}'
     </script>
     <script src='{% static "sprints/base_form.js" %}'></script> 
     <script>
-        window.onload = randomProblem()
+        window.onload = sprintFeeder()
     </script>
 
 

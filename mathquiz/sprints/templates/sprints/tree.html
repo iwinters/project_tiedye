@@ -4,28 +4,34 @@
 
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'sprints/base_form.css' %}">
-    <script src="{% static 'base_form.js' %}"></script>   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
 </head>
 <body style='margin:0px;padding: 0px;'>
     <div class="header">
-        <a href="{% url 'tree' %}" class="logo"><img src='{% static "sprints/tni_logo.png" %}' width='100px'></a>
+        <a href="{% url 'tree' student.id %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
         <div class="header-right">
-        <a class="active toplinks" href="#home">Home</a>
+            <select class='button ww-button selectStudent'>
+                <option>Sam</option>
+                <option>Leah</option>
+            </select>
+            <!--
+        <button id='selectStudent' class='button ww-button' onclick='selectStudentDropDown()'>{{ student.student_name }}</button>
+            <div id='studentMenu' class='dropdown-content hidden'>
+                <a>Leah</a>
+                <a>Sam</a>
+            </div>
+
+        -->
         </div>
-    </div>
-    </div>
-    <div style="margin: auto; width: 10%; min-width: 100px;">
-        <a href='{% url "sprint" 1 %}' class = 'node'><img src='{% static "sprints/gingerbeard.svg" %}' style='width:100%'></a>
-        <br>
-        <br>
-        <br>
-        <br>
+
     </div>
     <div style="margin: auto; width: 10%; min-width: 100px;">
-        <img src='{% static "sprints/gingerbeard.svg" %}' style='width:100%'>
+        <a href='{% url "sprint" arithmetic_next_unit.id %}' class = 'node'><img src='{% static "sprints/gingerbeard.svg" %}' style='width:100%'></a>
+        <div>
+            {{ arithmetic_next_unit.id }}{{ student.student_name }}{{ student.arithmetic_level }} {% for cat in categories %}{{ cat.category_name }} {% endfor %} 44 {{ student.student_name }} 
+        </div>
         <br>
         <br>
         <br>
@@ -38,6 +44,15 @@
         <br>
         <br>
     </div>
+    <div style="margin: auto; width: 10%; min-width: 100px;">
+        <img src='{% static "sprints/gingerbeard.svg" %}' style='width:100%'>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+    <script src='{% static "sprints/base_form.js" %}'></script> 
+
 
 
 
