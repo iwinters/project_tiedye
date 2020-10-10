@@ -271,6 +271,27 @@ input.invalid {
 .student-select:hover .selectStudent {
   display:block
 }
+.selectStudentList {
+  border-radius: 7px;
+  background-color: #FFF3C7;
+  text-align: left;
+
+}
+
+.selectStudentList a {
+  font-weight: 700;
+  text-decoration: none;
+  color: black
+}
+
+.selectStudentButton {
+  padding: 10px;
+}
+.selectStudentButton:hover {
+  padding: 10px;
+  background-color: rgb(255, 199, 0);
+  border-radius: 7px;
+}
 
 
 @media only screen and (max-width: 600px) {

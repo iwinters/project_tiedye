@@ -7,9 +7,10 @@ from django.urls import reverse_lazy
 
 
 
-def sprint(request, level_id):
+def sprint(request, student_id, level_id):
     unit = get_object_or_404(level, pk=level_id)
-    return render(request,'sprints/sprint.html', {'unit':unit}) 
+    student_object = get_object_or_404(student, pk=student_id)
+    return render(request,'sprints/sprint.html', {'unit':unit, 'student':student_object}) 
 
 def tree(request, student_id):
     categories = category.objects.all()

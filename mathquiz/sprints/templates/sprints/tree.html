@@ -14,11 +14,11 @@
         <div class="header-right">
             <div class="student-select"><span>{{ student.student_name }}{{ user.id }}{{ student.user }}{{request.user}}{{ student.user.id }}</span>
             <div class="selectStudent">
-                <ul class='button ww-button'>
+                <table class='selectStudentList'>
                     {% for s in students %}
-                    <li><a href='{% url "tree" s.id %}'>{{ s.student_name }}</a></li>
+                    <tr><td class='selectStudentButton'><a href='{% url "tree" s.id %}'>{{ s.student_name }}</a></td></tr>
                     {% endfor %}
-                </ul>
+                </table>
             </div>
             </div>
             <!--
@@ -33,7 +33,7 @@
 
     </div>
     <div style="margin: auto; width: 10%; min-width: 100px;">
-        <a href='{% url "sprint" arithmetic_next_unit.id %}' class = 'node'><img src='{% static "sprints/gingerbeard.svg" %}' style='width:100%'></a>
+        <a href='{% url "sprint" student.id arithmetic_next_unit.id %}' class = 'node'><img src='{% static "sprints/gingerbeard.svg" %}' style='width:100%'></a>
         <div>
             {{ arithmetic_next_unit.id }}{{ student.student_name }}{{ student.arithmetic_level }} {% for cat in categories %}{{ cat.category_name }} {% endfor %} 44 {{ student.student_name }} 
         </div>

@@ -9,7 +9,7 @@
 </head>
 <body>
         <div class="header">
-            <a href="{% url 'tree' %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
+            <a href="{% url 'tree' student.id %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
             <div class="header-right">
             <a class="active toplinks" href="#home">Home</a>
             </div>
@@ -76,7 +76,7 @@
             </div>
             <div class = 'finish-line-text-area'><span style='font-weight: bold; font-size: 30px;'>You did it!</span><br><span style='font-size: 20px;'>and earned 25 coins!</span>
                 <div style='text-align: right'>
-                    <a style='margin: 20px' id='finishLineButton' class='button gw-button' href="{% url 'tree' %}">Onwards!</a>
+                    <a style='margin: 20px' id='finishLineButton' class='button gw-button' href="{% url 'tree' student.id %}">Onwards!</a>
                 </div>
 
             </div>
