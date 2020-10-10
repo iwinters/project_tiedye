@@ -20,6 +20,7 @@ from sprints import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('<int:student_id>', views.tree, name='tree'),
+    path('tree/', views.some_tree, name='some_tree'),
     path('sprint/<level_id>', views.sprint, name='sprint'),
     path('users/', include('django.contrib.auth.urls')),
     path('', include('users.urls')),

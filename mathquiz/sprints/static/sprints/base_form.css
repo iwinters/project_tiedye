@@ -262,9 +262,14 @@ input.invalid {
   display: block;
 }
 
-.selectStudent option {
+.selectStudent {
   margin:10px;
+  display:none
 
+
+}
+.student-select:hover .selectStudent {
+  display:block
 }
 
 

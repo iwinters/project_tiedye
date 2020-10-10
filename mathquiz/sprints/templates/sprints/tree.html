@@ -12,10 +12,15 @@
     <div class="header">
         <a href="{% url 'tree' student.id %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
         <div class="header-right">
-            <select class='button ww-button selectStudent'>
-                <option>Sam</option>
-                <option>Leah</option>
-            </select>
+            <div class="student-select"><span>{{ student.student_name }}{{ user.id }}{{ student.user }}{{request.user}}{{ student.user.id }}</span>
+            <div class="selectStudent">
+                <ul class='button ww-button'>
+                    {% for s in students %}
+                    <li><a href='{% url "tree" s.id %}'>{{ s.student_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            </div>
             <!--
         <button id='selectStudent' class='button ww-button' onclick='selectStudentDropDown()'>{{ student.student_name }}</button>
             <div id='studentMenu' class='dropdown-content hidden'>
