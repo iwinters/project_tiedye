@@ -67,7 +67,7 @@
             <h1>Correct!</h1>
         </div>
         <div class="hidden wrong" id="incorrect">
-            <h1>Try again</h1>
+            <h1>Not quite! Try again</h1>
         </div>
 
         <div id='finishLine' class='hidden finishLine'>
@@ -76,7 +76,7 @@
             </div>
             <div class = 'finish-line-text-area'><span style='font-weight: bold; font-size: 30px;'>You did it!</span><br><span style='font-size: 20px;'>and earned 25 coins!</span>
                 <div style='text-align: right'>
-                    <a style='margin: 20px' id='finishLineButton' class='button gw-button' href="{% url 'tree' student.id %}">Onwards!</a>
+                    <a style='margin: 15px; position: relative; top:10px' id='finishLineButton' class='button gw-button' href="{% url 'tree' student.id %}">Onwards!</a>
                 </div>
 
             </div>

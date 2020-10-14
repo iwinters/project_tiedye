@@ -4,6 +4,7 @@ from users.models import student
 import django.http.request
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
 
 
 
@@ -31,7 +32,11 @@ def tree(request, student_id):
         return redirect('some_tree')
 
 def some_tree(request):
-    students = student.objects.filter(user = request.user)
-    one_student = students[0]
-    response = redirect(reverse_lazy('tree', kwargs={"student_id": one_student.id}))
-    return response
+    if request.user.is_authenticated:
+        students = student.objects.filter(user = request.user)
+        one_student = students[0]
+        response = redirect(reverse_lazy('tree', kwargs={"student_id": one_student.id}))
+        return response
+    else:
+        context = {}
+        return render(request, 'sprints/index.html', context)

@@ -1,0 +1,95 @@
+<head>        
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'sprints/base_form.css' %}">
+  
+    <meta name="viewport" content="width=device-width">
+
+</head>
+<body>
+        <div class="header">
+            <a href="{% url 'some_tree' %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
+            <div class="header-right">
+            <a class="active toplinks" href="#home">Home</a>
+            </div>
+
+        </div>
+        <div style='text-align: center;'>
+            <div class="bodyArea">
+                    <div class='homeFlexbox'>
+                        <div>
+                            <img src= '{% static "sprints/sunny_charles.svg" %}' width="250px" style="padding:0px 40px">
+                        </div>
+                        <div class="homeFlexboxText">
+                            <h1 class='homeHeading'>Math can be easier.<br>For everyone involved.</h1>
+                            <h2 style="max-width: 500px; font-weight:normal;">
+                                We write math lessons that make sense, and reward your kids for getting better every day.
+                            </h2>
+                        </div>
+                    </div>
+                    <button class='button oy-button'>Start your first lesson</button>
+            </div>
+        </div>
+
+        <div class='homeFlexbox'>
+            <div class='flexboxBlurbsHome'>
+                <h2>Quick, simple lessons</h2>    
+                <p>We take it one step at a time, so your kids remain confident every step of the way.</p>       
+            </div>
+            <div>
+                <div id='lessonCard' class='lessonCardHome'>
+                    <div style='position:relative'>
+                        <div id='pointsBarLesson'style='width:40%; position:absolute; top: 0px; left: 30px'>
+                            <div style='background-color: #EB0000; height:20px'></div>
+                            <div style='background-color: rgb(255, 122, 0); height:20px'></div>
+                            <div style='background-color: rgb(255, 199, 0); height:20px'></div>
+        
+        
+                        </div>
+                        <img src='{% static "sprints/gingerbeard.svg" %}' class='messenger-pic' style="position:absolute; top: -10px; left: -15px">
+        
+                    </div>
+                    <div class='lessonCardContents'>
+                        <div id='lessonCardText' class='lessonCardText'>
+                            Adding three numbers requires two steps.
+                            <br><br>
+                            0 + 6 + 8 = ?
+                            <br><br>
+                            First, add two of the numbers.
+                            <br><br>
+                            0 + 6 = <input id='firstInputHome' class='lessonInput' oninput='useVariableHome()'>
+                            <br><br>
+                            Second, add the total to the third number.
+                            <br><br>
+                            <input id='secondInputHome' class='lessonInput' value=''> + 8 = <input id='finalInputHome' class='lessonInput'>
+                            <br><br>
+                        </div>
+                        <div style='text-align-last: right;'>
+                            <button type="button" id="checkLessonMath" onclick="checkMathHome()" class='button oy-button'>Check answer</button>
+        
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+ 
+    <script >
+        function useVariableHome() {
+            var x = document.getElementById("firstInputHome").value
+            document.getElementById("secondInputHome").value = x
+        }
+        function checkMathHome() {
+            if (document.getElementById('finalInputHome').value == 14) {
+                document.getElementById('pointsBarLesson').style.width = "50%"
+            }
+            else
+                {console.log("shitbuckets")}
+
+        }
+
+    </script> 
+
+
+
+</body>

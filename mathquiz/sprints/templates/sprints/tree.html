@@ -12,7 +12,7 @@
     <div class="header">
         <a href="{% url 'tree' student.id %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
         <div class="header-right">
-            <div class="student-select"><span>{{ student.student_name }}{{ user.id }}{{ student.user }}{{request.user}}{{ student.user.id }}</span>
+            <div class="student-select"><span>{{ student.student_name }}<img src='{% static "sprints/down.svg" %}' width=15px style='padding-left: 10px;'></span>
             <div class="selectStudent">
                 <table class='selectStudentList'>
                     {% for s in students %}
@@ -32,11 +32,17 @@
         </div>
 
     </div>
-    <div style="margin: auto; width: 10%; min-width: 100px;">
-        <a href='{% url "sprint" student.id arithmetic_next_unit.id %}' class = 'node'><img src='{% static "sprints/gingerbeard.svg" %}' style='width:100%'></a>
-        <div>
-            {{ arithmetic_next_unit.id }}{{ student.student_name }}{{ student.arithmetic_level }} {% for cat in categories %}{{ cat.category_name }} {% endfor %} 44 {{ student.student_name }} 
-        </div>
+    <div style="margin: auto; width: 300px; text-align: center; font-weight: 700;">
+            <div style='padding-bottom: 10px;'>
+            Addition ( + )
+            </div>
+            <div onclick="location.href='{% url "sprint" student.id arithmetic_next_unit.id %}'" class='node'>
+
+            <img src='{% static "sprints/gingerbeard.svg" %}' style='width:100px;'>
+            </div>
+            <button onclick="location.href='{% url "sprint" student.id arithmetic_next_unit.id %}'" class='coin-button' style='position: relative; bottom:15px; left:30px'>
+                {{ arithmetic_next_unit.id }}
+            </button>
         <br>
         <br>
         <br>
