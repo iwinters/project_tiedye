@@ -13,7 +13,7 @@
             </div>
 
         </div>
-        <div style='text-align: center;'>
+        <div style='text-align: center; padding-bottom: 150px;'>
             <div class="bodyArea">
                     <div class='homeFlexbox'>
                         <div>
@@ -21,57 +21,102 @@
                         </div>
                         <div class="homeFlexboxText">
                             <h1 class='homeHeading'>Math can be easier.<br>For everyone involved.</h1>
-                            <h2 style="max-width: 500px; font-weight:normal;">
+                            <h2 class='homeMainText'>
                                 We write math lessons that make sense, and reward your kids for getting better every day.
                             </h2>
                         </div>
                     </div>
-                    <button class='button oy-button'>Start your first lesson</button>
+                    <button class='button gg-button'>Start your first lesson</button>
             </div>
         </div>
-
+        <div style='background-color: rgb(255, 199, 0);'>
         <div class='homeFlexbox'>
             <div class='flexboxBlurbsHome'>
                 <h2>Quick, simple lessons</h2>    
                 <p>We take it one step at a time, so your kids remain confident every step of the way.</p>       
             </div>
             <div>
-                <div id='lessonCard' class='lessonCardHome'>
-                    <div style='position:relative'>
-                        <div id='pointsBarLesson'style='width:40%; position:absolute; top: 0px; left: 30px'>
-                            <div style='background-color: #EB0000; height:20px'></div>
-                            <div style='background-color: rgb(255, 122, 0); height:20px'></div>
-                            <div style='background-color: rgb(255, 199, 0); height:20px'></div>
-        
-        
+                <div style='position:relative'>
+                    <div id='lessonCardHome' class='lessonCardHome'>
+                        <div style='position:relative'>
+                            <div id='pointsBarLesson'style='width:40%; position:absolute; top: 0px; left: 30px'>
+                                <div style='background-color: #EB0000; height:20px'></div>
+                                <div style='background-color: rgb(255, 122, 0); height:20px'></div>
+                                <div style='background-color: rgb(255, 199, 0); height:20px'></div>
+            
+            
+                            </div>
+                            <img src='{% static "sprints/gingerbeard.svg" %}' class='messenger-pic' style="position:absolute; top: -10px; left: -15px">
+            
                         </div>
-                        <img src='{% static "sprints/gingerbeard.svg" %}' class='messenger-pic' style="position:absolute; top: -10px; left: -15px">
-        
+                        <div class='lessonCardContents' >
+                            <div id='lessonCardText' class='lessonCardText'>
+                                Adding three numbers requires two steps.
+                                <br><br>
+                                0 + 6 + 8 = ?
+                                <br><br>
+                                First, add two of the numbers.
+                                <br><br>
+                                0 + 6 = <input id='firstInputHome' class='lessonInput' oninput='useVariableHome()'>
+                                <br><br>
+                                Second, add the total to the third number.
+                                <br><br>
+                                <input id='secondInputHome' class='lessonInput' value=''> + 8 = <input id='finalInputHome' class='lessonInput'>
+                                <br><br>
+                            </div>
+                            <div style='text-align-last: right;'>
+                                <button type="button" id="checkMathHome" onclick="checkMathHome()" class='button oy-button'>Check answer</button>
+            
+                            </div>
+                        </div>
                     </div>
-                    <div class='lessonCardContents'>
-                        <div id='lessonCardText' class='lessonCardText'>
-                            Adding three numbers requires two steps.
-                            <br><br>
-                            0 + 6 + 8 = ?
-                            <br><br>
-                            First, add two of the numbers.
-                            <br><br>
-                            0 + 6 = <input id='firstInputHome' class='lessonInput' oninput='useVariableHome()'>
-                            <br><br>
-                            Second, add the total to the third number.
-                            <br><br>
-                            <input id='secondInputHome' class='lessonInput' value=''> + 8 = <input id='finalInputHome' class='lessonInput'>
-                            <br><br>
-                        </div>
-                        <div style='text-align-last: right;'>
-                            <button type="button" id="checkLessonMath" onclick="checkMathHome()" class='button oy-button'>Check answer</button>
-        
+                    <div id="successDivHome" class='successDivHome hidden'>
+                        <div class='successDivHomeContents'>
+                            <img src='{% static "sprints/excitedmonkey.png" %}' width=60%>
+                            <div class='successDivHomeDiv'><h2>You did it!</h2></div>
+
                         </div>
                     </div>
                 </div>
                 
             </div>
         </div>
+        </div>
+
+
+
+        <div style='background-color:rgb(255, 255, 255)'>
+            <div class='homeFlexbox'>
+                <div style='width:90%; max-width:500px'>
+                    <img src='{% static "sprints/firegem.svg" %}' width=100%>
+                </div>
+                <div class='flexboxBlurbsHome'>
+                    <h2>Rewards for a job well done</h2>    
+                    <p>Our students stay motivated with the help of streaks, points, and prizes</p>       
+                </div>
+            </div>
+        </div>
+        <div style='background-color: rgb(255, 199, 0);'>
+            <div class='homeFlexbox'>
+                <div class='flexboxBlurbsHome'>
+                    <h2>Free if you start today</h2>    
+                    <p>We're just introducing ourselves to the world, and we want to make a good impression. Anyone who signs up now gets a free account.</p> 
+                    <div style='text-align: center; padding:20px'> 
+                        <button class='button gg-button'>Sign up</button>     
+                    </div>
+                </div>
+                <div style='width:90%; max-width:500px'>
+                    <img src='{% static "sprints/excitedcapuchin.png" %}' width=70% style='padding: 0px 30px'>
+                </div>
+            </div>
+        </div>
+        <div style=background-color:black>
+
+
+        </div>
+
+
+
 
  
     <script >
@@ -81,7 +126,9 @@
         }
         function checkMathHome() {
             if (document.getElementById('finalInputHome').value == 14) {
-                document.getElementById('pointsBarLesson').style.width = "50%"
+                document.getElementById('pointsBarLesson').style.width = "50%";
+                document.getElementById('lessonCardHome').style.opacity="0.2"
+                document.getElementById('successDivHome').classList.remove('hidden')
             }
             else
                 {console.log("shitbuckets")}

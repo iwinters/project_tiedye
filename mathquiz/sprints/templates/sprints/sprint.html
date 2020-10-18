@@ -2,6 +2,8 @@
 
 <head>        
     {% load static %}
+    {% load widget_tweaks %}
+
     <link rel="stylesheet" type="text/css" href="{% static 'sprints/base_form.css' %}">
   
     <meta name="viewport" content="width=device-width">
@@ -76,7 +78,11 @@
             </div>
             <div class = 'finish-line-text-area'><span style='font-weight: bold; font-size: 30px;'>You did it!</span><br><span style='font-size: 20px;'>and earned 25 coins!</span>
                 <div style='text-align: right'>
-                    <a style='margin: 15px; position: relative; top:10px' id='finishLineButton' class='button gw-button' href="{% url 'tree' student.id %}">Onwards!</a>
+                    <form method='post'>
+                        {% csrf_token %}
+                        {% render_field form.points id='pointsUpdate' %}
+                        <input type='submit' value='Onwards!' style='margin: 15px; position: relative; top:10px' id='finishLineButton' class='button gw-button'>
+                    </form>
                 </div>
 
             </div>

@@ -50,6 +50,26 @@ body {
   background-color: #FFF3C7;
   border-radius: 30px;
 }
+.successDivHome {
+  width: 500px;
+  border-radius: 30px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  text-align:center;
+  vertical-align: center;
+}
+.successDivHomeContents {
+  padding: 0px;
+}
+.successDivHomeDiv {
+  background-color: rgb(167, 255, 167);
+  padding: 20px;
+  color: rgb(0, 123, 0);
+  border-radius: 10px;
+  width:auto
+
+}
 .lessonCardContents {
   padding: 80px 40px 40px 40px;
 }
@@ -69,7 +89,7 @@ body {
   font-family: 'Inter Var';
   font-size: large;
   font-weight: 550;
-
+  width: auto;
   padding: 5px 15px;
   border-radius: 5px;
   
@@ -271,7 +291,6 @@ input.invalid {
   color:rgb(0, 105, 0);
   border-radius: 20px;
   padding:30px;
-  padding-bottom: 80px;
   width: 75%;
   min-width: 300px;
 }
@@ -347,6 +366,10 @@ input.invalid {
 .homeHeading {
   font-size: 50;
 }
+.homeMainText {
+  max-width: 500px;
+  font-weight:normal;
+}
 .flexboxBlurbsHome {
   margin-left:50px;
   margin-right:50px;
@@ -366,6 +389,9 @@ input.invalid {
   .lessonCardHome{
     width: 80%;
 
+  }
+  .successDivHome {
+    width:80%
   }
 
   .wrong {
@@ -465,7 +491,10 @@ input.invalid {
 
 }
 .homeHeading {
-  font-size: 25;
+  font-size: 27;
+}
+.homeMainText {
+  font-size: 18;
 }
 .bodyArea {
   width:80vw;

@@ -103,8 +103,10 @@ function checkMath() {
     if (score >= 100) {
       document.getElementById('regForm').classList.add('hidden');
       document.getElementById('success').classList.add('hidden');
+      document.getElementById('pointsUpdate').value += 25;
+      document.getElementById('finishLine').classList.remove('hidden');
+;
 
-      document.getElementById('finishLine').classList.remove('hidden')
       
     }
 
