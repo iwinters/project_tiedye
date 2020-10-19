@@ -76,11 +76,11 @@
             <div class = 'finish-line-edwin-div' style='width: 300px; margin: auto;'>
                 <img src='{% static "sprints/charles.png" %}' class = 'finish-line-edwin'>
             </div>
-            <div class = 'finish-line-text-area'><span style='font-weight: bold; font-size: 30px;'>You did it!</span><br><span style='font-size: 20px;'>and earned 25 coins!</span>
+            <div class = 'finish-line-text-area'><span style='font-weight: bold; font-size: 30px;'>You did it!</span><br><span style='font-size: 20px;'>and earned <span id='pointsVisible'>15</span> points!</span>
                 <div style='text-align: right'>
                     <form method='post'>
                         {% csrf_token %}
-                        {% render_field form.points id='pointsUpdate' %}
+                        {% render_field form.points id='pointsUpdate' style='display:none'%}
                         <input type='submit' value='Onwards!' style='margin: 15px; position: relative; top:10px' id='finishLineButton' class='button gw-button'>
                     </form>
                 </div>
@@ -99,6 +99,7 @@
         var equation = '{{ unit.equation }}'
         var rules = '{{ unit.rules }}'
         var type = '{{ unit.sprint_type }}'
+        var prevPoints = '{{ student.points }}'
     </script>
     <script src='{% static "sprints/base_form.js" %}'></script> 
     <script>

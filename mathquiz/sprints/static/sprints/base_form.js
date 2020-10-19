@@ -1,6 +1,7 @@
 var currentTab = 0; // Current tab is set to be the first tab (0)
 var result = 100;
-var score = 0;
+var completion = 0;
+var points = 15
 name = "Player"
 var successDiv = document.getElementById('success');
 var finishLine = document.getElementById('finishLine');
@@ -98,12 +99,16 @@ function checkMath() {
     document.getElementById('checkButton').classList.add('hidden');
     document.getElementById('success').classList.remove('hidden');
     document.getElementById('nextButton').classList.remove('hidden');
-    score +=10;
+    completion +=10;
     pointsBarUpdate(10);
-    if (score >= 100) {
+    if (completion >= 100) {
+      if (points > 15) {
+        points = 15
+      }
       document.getElementById('regForm').classList.add('hidden');
       document.getElementById('success').classList.add('hidden');
-      document.getElementById('pointsUpdate').value += 25;
+      document.getElementById('pointsUpdate').value = parseInt(prevPoints) + points;
+      document.getElementById('pointsVisible').innerHTML = points;
       document.getElementById('finishLine').classList.remove('hidden');
 ;
 
@@ -113,6 +118,7 @@ function checkMath() {
   }
   else {
     document.getElementById('incorrect').classList.remove('hidden');
+    points -= 1
     document.getElementById('answer').value = "";
     document.getElementById('answer').focus();
 
@@ -173,7 +179,7 @@ function nextQuestion () {
 }
 
 function pointsBarUpdate(changeInt) {
-  document.getElementById('pointsBar').style.width = score + '%'
+  document.getElementById('pointsBar').style.width = completion + '%'
 }
 
 //enforces any rules that must be applied to a specific sprint
@@ -253,18 +259,19 @@ function checkLessonMath() {
     document.getElementById('checkLessonMath').classList.add('hidden');
     document.getElementById('success').classList.remove('hidden');
     document.getElementById('nextButtonLesson').classList.remove('hidden');
-    score +=10;
+    completion +=10;
     pointsBarLessonUpdate();
-    if (score >= 100) {
+    if (completion >= 100) {
       document.getElementById('lessonCard').classList.add('hidden');
       document.getElementById('success').classList.add('hidden');
-
+      document.getElementById('pointsVisible').innerHTML = points;
       document.getElementById('finishLine').classList.remove('hidden')
       
     }
 
   }
   else {
+    points -= 1
     document.getElementById('incorrect').classList.remove('hidden');
     document.getElementById('answer').value = "";
     document.getElementById('answer').focus();
@@ -276,7 +283,7 @@ function checkLessonMath() {
 }
 
 function pointsBarLessonUpdate(changeInt) {
-  document.getElementById('pointsBarLesson').style.width = score + '%'
+  document.getElementById('pointsBarLesson').style.width = completion + '%'
 }
 function nextQuestionLesson () {
   randomProblemLesson();
