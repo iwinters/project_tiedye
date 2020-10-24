@@ -18,6 +18,7 @@
                     {% for s in students %}
                     <tr><td class='selectStudentButton'><a href='{% url "tree" s.id %}'>{{ s.student_name }}</a></td></tr>
                     {% endfor %}
+                    <tr><td class='selectStudentButton'><a href='{% url "logout" %}'>Log Out</a></td></tr>
                 </table>
             </div>
             </div>

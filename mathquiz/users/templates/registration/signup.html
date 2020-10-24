@@ -1,64 +1,39 @@
 <head>        
     {% load static %}
+    {% load widget_tweaks %} 
+
     <link rel="stylesheet" type="text/css" href="{% static 'sprints/base_form.css' %}">
-    <script src='{% static "sprints/base_form.js" %}'></script>   
+    <script src='{% static "sprints/base_form.js" %}'></script>  
+      
+    <meta name="viewport" content="width=device-width">
+
 
 </head>
-<body>
+<body style='margin:0px;padding: 0px;'>
         <div class="header">
-            <a href="" class="logo"><img src='{% static "sprints/tni_logo.png" %}' width='200px'></a>
+            <a href="{% url 'some_tree' %}" class="logo"><img src='{% static "sprints/tni_logo.png" %}' width='150px'></a>
             <div class="header-right">
             <a class="active toplinks" href="#home">Home</a>
             </div>
         </div>
 
-        <div id="regForm" action="">
-            <div class='meter' style="text-align:center; margin-bottom: 80px;">
-                <span id='pointsBar' style="width: 0px"></span>
-            </div>
+        <div id="regForm" style='max-width:400px ;margin:80px auto'>
+            
             <div>
-                <img src='{% static "sprints/gingerbeard.svg" %}' style="width:75px; vertical-align: top; margin-right: 10px;">
-                <div style="background-color: rgb(237, 237, 237); border-radius: 50px; padding: 20px; display: inline-block; vertical-align: top;" id="question" >
-                    Register for your shiny new account
-                </div>
+                <div style='text-align:center'><h2>Register</h2></div>
                 <div>
                     <form method='POST'>
                         {% csrf_token %}
-                        {{ form.as_p }}
-                        <button>Register</button>
+                        {% render_field form.username placeholder='Username' class='loginField' %}
+                        {% render_field form.password1 placeholder='Password' class='loginField' %}
+                        {% render_field form.password2 placeholder='Confirm Password' class='loginField' %}
+                        {{ form.username.errors }}
+                        {{ form.password1.errors }}
+                        {{ form.password2.errors }}
+                        <button class='button oy-button' style='width: 100%; margin:20px 0px'>Log in</button>
                     </form>
                 </div>
 
             </div>
 
-            <div style="margin-top: 100px; margin-bottom: 20px;">
-                <div style="text-align: right;">
-                    <button type="button" id="confirmNameButton" onclick="confirmName()" class='button'>Confirm</button>
-                    <button type="button" id="checkButton" onclick="checkAnswer(1)" class='button hidden'>Check answer</button>
-                    <button type='button' id='nextButton' onclick='nextQuestion()' class='nextButton hidden'>Next question</button>
-
-
-                </div>
-            </div>
-
-        </div>
-        <div class="hidden success" id="success">
-            <h1>Correct!</h1>
-        </div>
-        <div class="hidden wrong" id="incorrect">
-            <h1>Try again</p>
-        </div>
-
-        <div id='finishLine' class='hidden finishLine' style='margin: auto'>
-            <div style='width: 300px; margin: auto;'>
-                <img src='{% static "sprints/edwin.svg" %}' style="width:300px;">
-            </div>
-            <div style='background-color: rgb(150, 241, 150); color:rgb(0, 105, 0);border-radius: 20px; padding:30px; width: 75%; '><span style='font-weight: bold; font-size: 30px;'>You did it!</span><br><span style='font-size: 20px;'>and earned 25 coins!</span>
-                <a style='float:right' id='finishLineButton' class='finishLineButton' href="">Onwards!</a>
-
-            </div>
-
-           
-        
-        </div>
 </body>

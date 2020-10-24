@@ -375,6 +375,9 @@ input.invalid {
   margin-right:50px;
   max-width: 300px;
 }
+.loginField {
+  margin:20px 0px
+}
 
 
 

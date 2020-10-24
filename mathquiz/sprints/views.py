@@ -12,10 +12,15 @@ from users.forms import PointsForm
 def sprint(request, student_id, level_id):
     unit = get_object_or_404(level, pk=level_id)
     student_object = get_object_or_404(student, pk=student_id)
+    prev_points = student_object.points
     form=PointsForm(request.POST, instance = student_object)
 
     if request.method == 'POST':
         if form.is_valid():
+            if (form.cleaned_data.get('points') - prev_points) >= 12:
+                if unit.category_id == 1:
+                    student_object.arithmetic_level += 1
+                    student_object.save()
             form.save()
             return redirect ('tree', student_id = student_object.id)
 
