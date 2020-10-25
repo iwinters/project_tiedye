@@ -1,0 +1,37 @@
+<head>        
+    {% load static %}
+    {% load widget_tweaks %} 
+
+    <link rel="stylesheet" type="text/css" href="{% static 'sprints/base_form.css' %}">
+    <script src='{% static "sprints/base_form.js" %}'></script>  
+      
+    <meta name="viewport" content="width=device-width">
+
+
+</head>
+<body style='margin:0px;padding: 0px;'>
+        <div class="header">
+            <a href="{% url 'some_tree' %}" class="logo"><img src='{% static "sprints/tni_logo.png" %}' width='150px'></a>
+            <div class="header-right">
+            <a class="active toplinks" href="#home">Home</a>
+            </div>
+        </div>
+
+        <div id="regForm" style='max-width:400px ;margin:80px auto'>
+            
+            <div>
+                <div style='text-align:center'><p class='lightBigLetters'>Who's going to be learning?</p></div>
+                <div>
+                    <form method='POST'>
+                        {% csrf_token %}
+                        <!--{% render_field form.user style='display:none' %}-->
+                        {% render_field form.student_name placeholder="Name" class='loginField' %}
+                        <div style='text-align:right'>
+                            <button type=submit class='button oy-button' style='margin:20px 0px'>Ready</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+</body>

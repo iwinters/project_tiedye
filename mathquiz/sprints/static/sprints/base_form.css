@@ -313,7 +313,8 @@ input.invalid {
 
 .selectStudent {
   margin:10px;
-  display:none
+  display:none;
+  position: fixed
 
 
 }
@@ -377,6 +378,9 @@ input.invalid {
 }
 .loginField {
   margin:20px 0px
+}
+.lightBigLetters {
+  font-size: larger;
 }
 
 

@@ -5,7 +5,7 @@ import django.http.request
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
-from users.forms import PointsForm
+from users.forms import PointsForm, StudentsForm
 
 
 
@@ -49,9 +49,28 @@ def tree(request, student_id):
 def some_tree(request):
     if request.user.is_authenticated:
         students = student.objects.filter(user = request.user)
-        one_student = students[0]
-        response = redirect(reverse_lazy('tree', kwargs={"student_id": one_student.id}))
-        return response
+        if len(students) >= 1:
+            one_student = students[0]
+            response = redirect(reverse_lazy('tree', kwargs={"student_id": one_student.id}))
+            return response
+        else:
+            return redirect('students')
     else:
         context = {}
+        return render(request, 'sprints/index.html', context)
+
+def students(request):
+    if request.user.is_authenticated:
+        form=StudentsForm(request.POST)
+        if request.method == 'POST':
+                if form.is_valid():
+                    form.instance.user = request.user
+                    print(request.user)
+                    form.save()
+                    return redirect ('some_tree')
+
+
+        context = {'form':form}
+        return render(request, 'sprints/students.html', context)
+    else:
         return render(request, 'sprints/index.html', context)
