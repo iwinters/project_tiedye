@@ -24,8 +24,7 @@
                 <div>
                     <form method='POST'>
                         {% csrf_token %}
-                        {% render_field form.username placeholder='Name' class='loginField' %}
-                        {{ form.username.errors }}
+                        {% render_field form.username placeholder='Name' style='display:none' value='hmmm' %}
                         {% render_field form.email placeholder='Email' class='loginField' %}
                         {{ form.email.errors }}
                         {% render_field form.password1 placeholder='Password' class='loginField' %}
