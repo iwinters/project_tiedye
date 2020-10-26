@@ -65,7 +65,6 @@ def students(request):
         if request.method == 'POST':
                 if form.is_valid():
                     form.instance.user = request.user
-                    print(request.user)
                     form.save()
                     return redirect ('some_tree')
 

@@ -24,10 +24,13 @@
                 <div>
                     <form method='POST'>
                         {% csrf_token %}
-                        {% render_field form.username placeholder='Username' class='loginField' %}
+                        {% render_field form.username placeholder='Name' class='loginField' %}
+                        {{ form.username.errors }}
+                        {% render_field form.email placeholder='Email' class='loginField' %}
+                        {{ form.email.errors }}
                         {% render_field form.password1 placeholder='Password' class='loginField' %}
                         {% render_field form.password2 placeholder='Confirm Password' class='loginField' %}
-                        {{ form.username.errors }}
+                        
                         {{ form.password1.errors }}
                         {{ form.password2.errors }}
                         <button class='button oy-button' style='width: 100%; margin:20px 0px'>Log in</button>

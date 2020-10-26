@@ -127,3 +127,5 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = 'some_tree'
 LOGOUT_REDIRECT_URL = 'some_tree'
 
+
+AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']

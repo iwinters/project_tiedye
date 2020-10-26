@@ -25,6 +25,10 @@ body {
   float: right;
 }
 
+.header-right:hover .selectStudent {
+  display:block
+}
+
 .finishLine {
   margin: 20px auto;
   width: 50%;
@@ -323,9 +327,7 @@ input.invalid {
   font-weight: 700;
   text-align: right;
 }
-.student-select:hover .selectStudent {
-  display:block
-}
+
 .selectStudentList {
   border-radius: 7px;
   background-color: #FFF3C7;
