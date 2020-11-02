@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
 
 </head>
-<body>
+<body style='background-color: #FFCC00;'>
         <div class="header">
             <a href="{% url 'some_tree' %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
             <div class="header-right">
@@ -13,28 +13,25 @@
             </div>
 
         </div>
-        <div style='text-align: center; padding-bottom: 150px;'>
-            <div class="bodyArea">
-                    <div class='homeFlexbox'>
-                        <div>
-                            <img src= '{% static "sprints/sunny_charles.svg" %}' width="250px" style="padding:0px 40px">
-                        </div>
-                        <div class="homeFlexboxText">
+        <div class='heroArea'>
+            <div class="bodyArea" >
+                    <div class='heroFlexboxHome' style='flex-direction: row-reverse; position: absolute; bottom: 0px; left:0px; right:0px;'>
+                        <div class="homeFlexboxText" style='padding:20px; border-radius:10px;'>
                             <h1 class='homeHeading'>Math can be easier.<br>For everyone involved.</h1>
                             <h2 class='homeMainText'>
                                 We write math lessons that make sense, and reward your kids for getting better every day.
                             </h2>
+                            <button class='button gg-button'>Start your first lesson</button>
+
+                        </div>
+                        <div class="gorillaHero">
+                            <img src="{% static 'sprints/pensive_gorilla.png' %}" style='max-width: 100%;'>
                         </div>
                     </div>
-                    <button class='button gg-button'>Start your first lesson</button>
             </div>
         </div>
-        <div style='background-color: rgb(255, 199, 0);'>
-        <div class='homeFlexbox'>
-            <div class='flexboxBlurbsHome'>
-                <h2>Quick, simple lessons</h2>    
-                <p>We take it one step at a time, so your kids remain confident every step of the way.</p>       
-            </div>
+        <div style='background-color: white;'>
+        <div class='homeFlexbox' style='flex-direction:row-reverse; background-color: white;'>
             <div>
                 <div style='position:relative'>
                     <div id='lessonCardHome' class='lessonCardHome'>
@@ -80,12 +77,15 @@
                 </div>
                 
             </div>
+            <div class='flexboxBlurbsHome' >
+                <h2>Quick, simple lessons</h2>    
+                <p>We take it one step at a time, so your kids remain confident every step of the way.</p>       
+            </div>
         </div>
-        </div>
 
 
 
-        <div style='background-color:rgb(255, 255, 255)'>
+        <div style='background-color:rgb(255, 199, 0)'>
             <div class='homeFlexbox'>
                 <div style='width:90%; max-width:500px'>
                     <img src='{% static "sprints/firegem.svg" %}' width=100%>
@@ -96,7 +96,7 @@
                 </div>
             </div>
         </div>
-        <div style='background-color: rgb(255, 199, 0);'>
+        <div style='background-color: white;'>
             <div class='homeFlexbox'>
                 <div class='flexboxBlurbsHome'>
                     <h2>Free if you start today</h2>    
@@ -105,15 +105,12 @@
                         <button class='button gg-button'>Sign up</button>     
                     </div>
                 </div>
-                <div style='width:90%; max-width:500px'>
+                <div style='width:90%; max-width:500px; text-align:center;'>
                     <img src='{% static "sprints/excitedcapuchin.png" %}' width=70% style='padding: 0px 30px'>
                 </div>
             </div>
         </div>
-        <div style=background-color:black>
 
-
-        </div>
 
 
 
