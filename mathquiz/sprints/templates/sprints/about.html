@@ -1,0 +1,15 @@
+<head>        
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'sprints/base_form.css' %}">
+  
+    <meta name="viewport" content="width=device-width">
+
+</head>
+<body>
+    <div class="header">
+        <a href="{% url 'some_tree' %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
+        <div class="header-right">
+        <a class="active toplinks" href="#home">Home</a>
+        </div>
+
+    </div>

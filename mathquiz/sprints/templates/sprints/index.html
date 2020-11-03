@@ -14,14 +14,14 @@
 
         </div>
         <div class='heroArea'>
-            <div class="bodyArea" >
-                    <div class='heroFlexboxHome' style='flex-direction: row-reverse; position: absolute; bottom: 0px; left:0px; right:0px;'>
+            <div class="bodyArea">
+                    <div class='heroFlexboxHome' style='flex-direction: row-reverse;'>
                         <div class="homeFlexboxText" style='padding:20px; border-radius:10px;'>
                             <h1 class='homeHeading'>Math can be easier.<br>For everyone involved.</h1>
                             <h2 class='homeMainText'>
                                 We write math lessons that make sense, and reward your kids for getting better every day.
                             </h2>
-                            <button class='button gg-button'>Start your first lesson</button>
+                            <button class='button gg-button' onclick='window.location.href="{% url 'register' %}"'>Start your first lesson</button>
 
                         </div>
                         <div class="gorillaHero">
@@ -102,13 +102,18 @@
                     <h2>Free if you start today</h2>    
                     <p>We're just introducing ourselves to the world, and we want to make a good impression. Anyone who signs up now gets a free account.</p> 
                     <div style='text-align: center; padding:20px'> 
-                        <button class='button gg-button'>Sign up</button>     
+                        <button class='button gg-button' onclick='window.location.href="{% url 'register' %}"'>Sign up</button>     
                     </div>
                 </div>
                 <div style='width:90%; max-width:500px; text-align:center;'>
                     <img src='{% static "sprints/excitedcapuchin.png" %}' width=70% style='padding: 0px 30px'>
                 </div>
             </div>
+        </div>
+        <div class='bottomBanner'>
+            <a href='{% url "about" %}'>About</a>
+
+            <a href='mailto:isaacawinters@gmail.com'>Contact</a>
         </div>
 
 
@@ -128,7 +133,7 @@
                 document.getElementById('successDivHome').classList.remove('hidden')
             }
             else
-                {console.log("shitbuckets")}
+                {console.log("90210")}
 
         }
 

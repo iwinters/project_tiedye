@@ -73,3 +73,7 @@ def students(request):
         return render(request, 'sprints/students.html', context)
     else:
         return render(request, 'sprints/index.html', context)
+
+def about(request):
+    context = {}
+    return render(request, 'sprints/about.html', context)

@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.some_tree, name='some_tree'),
     path('<int:student_id>/sprint/<level_id>', views.sprint, name='sprint'),
     path('students', views.students, name='students'),
+    path('about', views.about, name='about'),
     path('users/', include('django.contrib.auth.urls')),
     path('', include('users.urls')),
 ]

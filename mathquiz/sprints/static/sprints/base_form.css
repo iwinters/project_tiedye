@@ -360,6 +360,8 @@ input.invalid {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  vertical-align: bottom;
+  padding-top: 7.5vh;
 
 }
 .homeFlexbox {
@@ -377,11 +379,20 @@ input.invalid {
   position: relative;
   
 }
+.heroArea {
+  text-align: center; 
+  display:inline;
+  
+  background-color: FFCC00; 
+  min-height: 100%;
+}
 .bodyArea {
   text-align: center;
+  height: inherit;
 
-  display:inline-block;
+  display:inline;
 }
+
 .homeHeading {
   font-size: 3.5vw;
 }
@@ -404,13 +415,18 @@ input.invalid {
   min-width:500px; 
   width: 50%;
 }
-.heroArea {
-  text-align: center; 
-  position:relative;
-  background-color: FFCC00; 
-  height:100%; 
-  min-height:700px
+
+.bottomBanner {
+  background-color: black;
+  color: white;
+  padding: 50px 0px;
+  text-align: center;
 }
+
+.bottomBanner a {
+  text-decoration: none;
+}
+
 
 
 
@@ -517,9 +533,7 @@ input.invalid {
     
 
   }
-  .homeFlexbox {
 
-  }
   .core-text-experience {
     width:75vw;
     display:inline-block;
@@ -532,17 +546,12 @@ input.invalid {
 .homeMainText {
   font-size: 18;
 }
-.bodyArea {
-  width:80vw;
-  display:inline-block;
-}
+
 .gorillaHero {
   min-width:200px; 
   width: 100%;
 }
-.heroArea {
-  min-height:0px
-}
+
 
 
 }
