@@ -1,7 +1,7 @@
 var currentTab = 0; // Current tab is set to be the first tab (0)
 var result = 100;
 var completion = 0;
-var points = 15
+var points = 10
 name = "Player"
 var successDiv = document.getElementById('success');
 var finishLine = document.getElementById('finishLine');
@@ -101,16 +101,17 @@ function checkMath() {
     document.getElementById('nextButton').classList.remove('hidden');
     completion +=10;
     pointsBarUpdate(10);
+    updatePointsReading(1);
     if (completion >= 100) {
-      if (points > 15) {
-        points = 15
+      if (points > 10) {
+        points = 10
       }
       document.getElementById('regForm').classList.add('hidden');
       document.getElementById('success').classList.add('hidden');
       document.getElementById('pointsUpdate').value = parseInt(prevPoints) + points;
       document.getElementById('pointsVisible').innerHTML = points;
       document.getElementById('finishLine').classList.remove('hidden');
-;
+      document.getElementById('headerRight').classList.add('hidden');
 
       
     }
@@ -119,6 +120,7 @@ function checkMath() {
   else {
     document.getElementById('incorrect').classList.remove('hidden');
     points -= 1
+    updatePointsReading(-1);
     document.getElementById('answer').value = "";
     document.getElementById('answer').focus();
 
@@ -144,12 +146,6 @@ function randomProblem() {
   
   //Plug 2 random numbers into the equation (a variable from the django model used for math-checking). /*/g format turns replace into replace all
   result = eval(((equation.replace(/_x_/g, _x_)).replace(/_y_/g, _y_)).replace(/_z_/g, _z_));
-  console.log(equation);
-
-  console.log(_x_);
-  console.log(_y_);
-  console.log(_z_);
-  console.log(result );
   
 }
 
@@ -261,11 +257,16 @@ function checkLessonMath() {
     document.getElementById('nextButtonLesson').classList.remove('hidden');
     completion +=10;
     pointsBarLessonUpdate();
+    updatePointsReading(1);
+
     if (completion >= 100) {
       document.getElementById('lessonCard').classList.add('hidden');
       document.getElementById('success').classList.add('hidden');
+      document.getElementById('pointsUpdate').value = parseInt(prevPoints) + points;
       document.getElementById('pointsVisible').innerHTML = points;
-      document.getElementById('finishLine').classList.remove('hidden')
+      document.getElementById('finishLine').classList.remove('hidden');
+      document.getElementById('headerRight').classList.add('hidden');
+
       
     }
 
@@ -275,6 +276,8 @@ function checkLessonMath() {
     document.getElementById('incorrect').classList.remove('hidden');
     document.getElementById('answer').value = "";
     document.getElementById('answer').focus();
+    updatePointsReading(-1);
+
 
 
 
@@ -338,3 +341,89 @@ function selectStudentDropDown () {
     }
   )
 }
+
+//  placement tests.
+//  set of functions needs to find middle point of the set of levels, see if the student is above or below that level.
+//  one function should find midpoint
+//  one function should determine whether a student is above or below it
+
+function placementFeeder() {
+  console.log(categoryLevels)
+
+
+  medianLevel(categoryLevels)
+}
+
+function medianLevel (possibleLevels) {
+  possLevels = possibleLevels
+
+
+  if (possibleLevels.length <= 1) {
+    // THIS IS WHERE WE HAVE TO SUBMIT TO THE DB WHICH LEVEL THE STUDENT GOES INTO (AND TELL TEHM WHERE THEY ENDED UP)
+    document.getElementById('regForm').classList.add('hidden');
+    document.getElementById('success').classList.add('hidden');
+    document.getElementById('finishLine').classList.remove('hidden');
+    document.getElementById('pointsUpdate').value = parseInt(possLevels[0].pk);
+
+    console.log("foo" + parseInt(possLevels[0].pk))
+  }
+
+  middleIndex = Math.max (0, ((Math.floor((possibleLevels.length)/2)) - 1));
+  middle = possibleLevels[middleIndex];
+  question_framework = middle.fields.question_framework;
+  equation = middle.fields.equation;
+  rules = middle.fields.rules
+  levelScore = 0;
+  levelLives = 2;
+
+  randomProblem();
+  showProblemRegForm();
+  
+
+}
+
+function checkAnswerPlacement(n) {
+  // Exit the function if any field in the current tab is invalid:
+  if (n == 1 && !validateForm()) return false;
+    checkMathPlacement();
+
+}
+
+function checkMathPlacement() {
+  //this function checks that the answer to the math question is correct
+  answer = document.getElementById("answer").value;
+
+  
+  if (answer == result) {
+    levelScore += 1
+    pointsBarUpdate(5);
+    if (levelScore >= 3) {
+      medianLevel(possLevels.slice(middleIndex + 1))
+    } else if (levelLives == 0) {
+      medianLevel(possLevels.slice(0, middleIndex+1))
+    }
+    nextQuestion();
+
+  } else {
+    levelScore -= 1
+    levelLives -= 1
+    pointsBarUpdate(10);
+    if (levelScore == 3) {
+      medianLevel(possLevels.slice(middleIndex + 1))
+    } else if (levelLives == 0) {
+      medianLevel(possLevels.slice(0, middleIndex+1))
+    }
+    nextQuestion();
+
+
+
+  }
+
+}
+
+function updatePointsReading (change) {
+  pointsShowing = parseInt(document.getElementById('earnedPoints').innerHTML)
+  document.getElementById('earnedPoints').innerHTML = pointsShowing + change
+}
+
+

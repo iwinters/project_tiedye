@@ -3,12 +3,6 @@
 <head>        
     {% load static %}
     {% load widget_tweaks %}
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'sprints/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'sprints/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'sprints/site.webmanifest' %}">
-    <link rel="mask-icon" href="{% static 'sprints/safari-pinned-tab.svg' %}" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
 
     <link rel="stylesheet" type="text/css" href="{% static 'sprints/base_form.css' %}">
   
@@ -17,10 +11,9 @@
 </head>
 <body>
         <div class="header">
-            <a href="{% url 'tree' student.id %}" class="logo"><img src='{% static "sprints/logo.svg" %}' width='150px'></a>
-            <div class="header-right" id='headerRight'>
-                <img id='diamondImage' class='diamondImage' src='{% static "sprints/diamond.svg" %}' height='20px' style='vertical-align: bottom;'>
-                <a class="active toplinks" href="#home"><span id='earnedPoints'>0</span> points earned</a>
+            <a href="{% url 'tree' student.id %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
+            <div class="header-right">
+            <a class="active toplinks" href="#home">Home</a>
             </div>
 
         </div>
@@ -30,7 +23,7 @@
                 <span id='pointsBar' style="width: 0px"></span>
             </div>
             <div>
-                <img src='{% static "sprints/guy.svg" %}' class='messenger-pic' style="vertical-align: top; margin-right: 10px;">
+                <img src='{% static "sprints/gingerbeard.svg" %}' class='messenger-pic' style="vertical-align: top; margin-right: 10px;">
                 <div class = 'message'  id="question" >
                     <!-- question text will go here -->
                 </div>
@@ -40,8 +33,8 @@
 
             <div style="margin-top: 100px; margin-bottom: 20px;">
                 <div style="text-align: right;">
-                    <button type="button" id="checkButton" onclick="checkAnswer(1)" class='button oy-button'>Check answer</button>
-                    <button type='button' id='nextButton' onclick='nextQuestion()' class='button gg-button hidden'>Next question</button>
+                    <button type="button" id="checkButton" onclick="checkAnswerPlacement(1)" class='button oy-button'>Check answer</button>
+                    <!--<button type='button' id='nextButton' onclick='nextQuestion()' class='button gg-button hidden'>Next question</button>-->
 
 
                 </div>
@@ -81,13 +74,13 @@
 
         <div id='finishLine' class='hidden finishLine'>
             <div class = 'finish-line-edwin-div' style='width: 300px; margin: auto;'>
-                <img src='{% static "sprints/fullGuy.svg" %}' width='80%'>
+                <img src='{% static "sprints/charles.png" %}' class = 'finish-line-edwin'>
             </div>
             <div class = 'finish-line-text-area'><span style='font-weight: bold; font-size: 30px;'>You did it!</span><br><span style='font-size: 20px;'>and earned <span id='pointsVisible'>15</span> points!</span>
                 <div style='text-align: right'>
                     <form method='post'>
                         {% csrf_token %}
-                        {% render_field form.points id='pointsUpdate' style='display:none'%}
+                        {% render_field form.arithmetic_level id='pointsUpdate' style='display:SOme'%}
                         <input type='submit' value='Onwards!' style='margin: 15px; position: relative; top:10px' id='finishLineButton' class='button gw-button'>
                     </form>
                 </div>
@@ -107,10 +100,13 @@
         var rules = '{{ unit.rules }}'
         var type = '{{ unit.sprint_type }}'
         var prevPoints = '{{ student.points }}'
+        var categoryLevels = JSON.parse('{{ category_levels|safe }}')
+        
+        
     </script>
     <script src='{% static "sprints/base_form.js" %}'></script> 
     <script>
-        window.onload = sprintFeeder()
+        window.onload = placementFeeder()
     </script>
 
 

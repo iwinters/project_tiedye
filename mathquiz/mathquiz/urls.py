@@ -25,5 +25,6 @@ urlpatterns = [
     path('students', views.students, name='students'),
     path('about', views.about, name='about'),
     path('users/', include('django.contrib.auth.urls')),
+    path('<int:student_id>/placement/<category_id>', views.placement, name='placement'),
     path('', include('users.urls')),
 ]

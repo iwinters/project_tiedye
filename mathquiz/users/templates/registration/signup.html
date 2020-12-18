@@ -1,6 +1,13 @@
 <head>        
     {% load static %}
     {% load widget_tweaks %} 
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'sprints/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'sprints/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'sprints/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'sprints/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
 
     <link rel="stylesheet" type="text/css" href="{% static 'sprints/base_form.css' %}">
     <script src='{% static "sprints/base_form.js" %}'></script>  
@@ -27,11 +34,12 @@
                         {% render_field form.username placeholder='Name' style='display:none' value='hmmm' %}
                         {% render_field form.email placeholder='Email' class='loginField' %}
                         {{ form.email.errors }}
+                        <span class='formError'>{{ email_fail }}</span>
                         {% render_field form.password1 placeholder='Password' class='loginField' %}
                         {% render_field form.password2 placeholder='Confirm Password' class='loginField' %}
                         
-                        {{ form.password1.errors }}
-                        {{ form.password2.errors }}
+                        <span class="formError">{{ form.password1.errors }}</span>
+                        <span class="formError">{{ form.password2.errors }}</span>
                         <button class='button oy-button' style='width: 100%; margin:20px 0px'>Log in</button>
                     </form>
                 </div>

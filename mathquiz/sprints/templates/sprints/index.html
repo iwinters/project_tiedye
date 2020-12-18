@@ -1,5 +1,13 @@
 <head>        
     {% load static %}
+
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'sprints/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'sprints/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'sprints/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'sprints/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
     <link rel="stylesheet" type="text/css" href="{% static 'sprints/base_form.css' %}">
   
     <meta name="viewport" content="width=device-width">
@@ -7,9 +15,11 @@
 </head>
 <body style='background-color: #FFCC00;'>
         <div class="header">
-            <a href="{% url 'some_tree' %}" class="logo"><img src='{% static "sprints/tni_logo.svg" %}' width='150px'></a>
+            <a href="{% url 'some_tree' %}" class="logo"><img src='{% static "sprints/logo.svg" %}' width='150px' style='max-width: 35%;'></a>
             <div class="header-right">
-            <a class="active toplinks" href="#home">Home</a>
+                <a class="active toplinks" href="{% url 'login' %}">Log in</a>
+                <button class='gg-button button'>Sign up</button>
+
             </div>
 
         </div>
@@ -21,8 +31,9 @@
                             <h2 class='homeMainText'>
                                 We write math lessons that make sense, and reward your kids for getting better every day.
                             </h2>
-                            <button class='button gg-button' onclick='window.location.href="{% url 'register' %}"'>Start your first lesson</button>
-
+                            <div style='text-align: center;'>
+                                <button style='margin:20px' class='button gg-button' onclick='window.location.href="{% url 'register' %}"'>Start your first lesson</button>
+                            </div>
                         </div>
                         <div class="gorillaHero">
                             <img src="{% static 'sprints/pensive_gorilla.png' %}" style='max-width: 100%;'>
@@ -31,7 +42,7 @@
             </div>
         </div>
         <div style='background-color: white;'>
-        <div class='homeFlexbox' style='flex-direction:row-reverse; background-color: white;'>
+        <div class='homeFlexbox' style='background-color: white;'>
             <div>
                 <div style='position:relative'>
                     <div id='lessonCardHome' class='lessonCardHome'>
@@ -82,10 +93,20 @@
                 <p>We take it one step at a time, so your kids remain confident every step of the way.</p>       
             </div>
         </div>
+        <div style='background-color:white'>
+            <div class='homeFlexbox' style='flex-direction:row-reverse'>
+                <div style='width:90%; max-width:500px'>
+                    <img src='{% static "sprints/firegem.svg" %}' width=100%>
+                </div>
+                <div class='flexboxBlurbsHome'>
+                    <h2>Immediate feedback</h2>    
+                    <p>Our students know right away whether they’ve gotten an answer right. When they miss one, they'll be able to quickly get back on track.</p>       
+                </div>
+            </div>
+        </div>
 
 
-
-        <div style='background-color:rgb(255, 199, 0)'>
+        <div style='background-color:rgb(255, 255, 255)'>
             <div class='homeFlexbox'>
                 <div style='width:90%; max-width:500px'>
                     <img src='{% static "sprints/firegem.svg" %}' width=100%>
@@ -96,13 +117,13 @@
                 </div>
             </div>
         </div>
-        <div style='background-color: white;'>
+        <div style='background-color: rgb(255, 199, 0);'>
             <div class='homeFlexbox'>
                 <div class='flexboxBlurbsHome'>
                     <h2>Free if you start today</h2>    
                     <p>We're just introducing ourselves to the world, and we want to make a good impression. Anyone who signs up now gets a free account.</p> 
                     <div style='text-align: center; padding:20px'> 
-                        <button class='button gg-button' onclick='window.location.href="{% url 'register' %}"'>Sign up</button>     
+                        <button class='button gg-button' onclick='window.location.href="{% url 'register' %}"'>Join for free</button>     
                     </div>
                 </div>
                 <div style='width:90%; max-width:500px; text-align:center;'>
@@ -111,9 +132,9 @@
             </div>
         </div>
         <div class='bottomBanner'>
-            <a href='{% url "about" %}'>About</a>
+            <a href='{% url "about" %}' style='padding:0px 10px'>About</a>
 
-            <a href='mailto:isaacawinters@gmail.com'>Contact</a>
+            <a href='mailto:isaacawinters@gmail.com' style='padding:0px 10px'>Contact</a>
         </div>
 
 

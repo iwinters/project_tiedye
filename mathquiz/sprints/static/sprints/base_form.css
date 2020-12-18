@@ -29,8 +29,11 @@ body {
 .header-right {
   float: right;
 }
+.studentSelectorDiv {
+  margin: 0px;
+}
 
-.header-right:hover .selectStudent {
+.studentSelectorDiv:hover .selectStudent {
   display:block
 }
 
@@ -95,7 +98,7 @@ body {
 
 }
 .button {
-  font-family: 'Inter Var';
+  font-family: 'Inter var';
   font-size: large;
   font-weight: 550;
   width: auto;
@@ -124,10 +127,11 @@ button:focus {
 .coin-button {
   background-color: rgb(255, 199, 0);
   border: 3px solid rgb(255, 199, 0);
-  color: rgb(255, 122, 0);
+  color: rgb(154, 79, 0);
   padding: 5px 10px;
   border-radius: 7px;
-  font-weight: 700;
+  font-family: "Inter var";
+  font-weight: bold;
 }
 .gg-button {
   background-color:  rgb(0, 123, 0);
@@ -151,7 +155,7 @@ button:focus {
   color:white
 }
 .nextButton {
-  font-family: 'Inter Var';
+  font-family: 'Inter var';
   font-size: large;
   font-weight: 550;
   color: white;
@@ -162,7 +166,7 @@ button:focus {
   box-shadow: 0px 7px rgb(162, 235, 162);
 }
 .finishLineButton {
-  font-family: 'Inter Var';
+  font-family: 'Inter var';
   font-size: large;
   font-weight: 550;
   color: white;
@@ -172,7 +176,7 @@ button:focus {
 }
 
 .previousButton {
-  font-family: 'Inter Var';
+  font-family: 'Inter var';
   font-size: large;
   font-weight: 550;
   color: rgb(255, 122, 0);
@@ -253,6 +257,7 @@ input.invalid {
   color: #000000;
   text-decoration: none;
   font-weight: 600;
+  margin: 0px 10px;
 }
 
 .meter { 
@@ -287,9 +292,7 @@ input.invalid {
   vertical-align: top;
   max-width: 50%;
 }
-.finish-line-edwin {
-  width:100%;
-}
+
 .finish-line-edwin-div {
   width: 300px;
   margin: auto;
@@ -321,16 +324,27 @@ input.invalid {
 }
 
 .selectStudent {
-  margin:10px;
   display:none;
-  position: fixed
+  position: fixed;
+  min-width: 150px;
+  right: 10px
 
 
 }
 .student-select {
-  margin: 10px;
   font-weight: 700;
   text-align: right;
+  display: inline-block;
+  padding: 10px;
+  margin:5px;
+  background-color: rgb(243, 243, 243);
+  border-radius: 7px;
+}
+
+.topBarWords {
+  padding:10px;
+  margin: 5px;
+  font-weight: 700;
 }
 
 .selectStudentList {
@@ -383,7 +397,7 @@ input.invalid {
   text-align: center; 
   display:inline;
   
-  background-color: FFCC00; 
+  background-color: #FFCC00; 
   min-height: 100%;
 }
 .bodyArea {
@@ -425,6 +439,34 @@ input.invalid {
 
 .bottomBanner a {
   text-decoration: none;
+}
+
+.paraBody {
+  margin-top: 50px;
+  margin-left:auto;
+  margin-right:auto;
+  width: 60%;
+  max-width:700px
+}
+.formError {
+  color:rgb(255, 122, 0);
+  font-weight: 700;
+  font-size: small;
+  list-style-type: none
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
 
@@ -503,6 +545,7 @@ input.invalid {
   .header {
     padding: 20px;
     margin-bottom: 10px;
+    position: relative;
     
   }
   .finish-line-edwin-div {
@@ -550,6 +593,13 @@ input.invalid {
 .gorillaHero {
   min-width:200px; 
   width: 100%;
+}
+
+.paraBody {
+  width: 80%
+}
+.topBarWords {
+  display: none;
 }
 
 
